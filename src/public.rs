@@ -471,6 +471,9 @@ impl std::fmt::Display for KeybdKey {
                 KeybdKey::LBracketKey => "LeftBracket",
                 KeybdKey::RBracketKey => "RightBracket",
                 KeybdKey::EqualKey => "Equal",
+                KeybdKey::PauseKey => "Pause",
+                KeybdKey::PrintScreenKey => "PrintScreen",
+                KeybdKey::AppsKey => "Apps",
                 KeybdKey::OtherKey(code) => return write!(f, "OtherKey({code})"),
             }
         )
