@@ -283,6 +283,20 @@ impl KeybdKey {
         }
     }
 
+    pub fn bind_all_blockable<F: Fn(KeybdKey) -> BlockInput + Send + Sync + Clone + 'static>(callback: F) {
+        for key in KeybdKey::iter() {
+            let callback = callback.clone();
+            let fire = move || {
+                callback(key)
+            };
+
+            KEYBD_BINDS
+                .lock()
+                .unwrap()
+                .insert(key, Bind::Blockable(Arc::new(fire)));
+        }
+    }
+
     #[cfg(target_os = "windows")]
     pub fn bind_all_release<F: Fn(KeybdKey) + Send + Sync + Clone + 'static>(callback: F) {
         for key in KeybdKey::iter() {
