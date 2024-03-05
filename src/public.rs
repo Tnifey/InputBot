@@ -217,6 +217,10 @@ pub enum KeybdKey {
     RBracketKey,
     EqualKey,
 
+    PauseKey,
+    PrintScreenKey,
+    AppsKey,
+
     #[strum(disabled)]
     OtherKey(u64),
 }

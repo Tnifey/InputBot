@@ -124,6 +124,9 @@ impl From<KeybdKey> for u64 {
             LBracketKey => 0xDB,
             RBracketKey => 0xDD,
             EqualKey => 0xBB,
+            PauseKey => 0x13,
+            PrintScreenKey => 0x2C,
+            AppsKey => 0x5D,
             OtherKey(code) => code,
         }
     }
@@ -250,6 +253,9 @@ impl From<u64> for KeybdKey {
             0xDB => LBracketKey,
             0xDD => RBracketKey,
             0xBB => EqualKey,
+            0x13 => PauseKey,
+            0x2C => PrintScreenKey,
+            0x5D => AppsKey,
             _ => OtherKey(code),
         }
     }
